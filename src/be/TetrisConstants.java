@@ -13,4 +13,6 @@ public interface TetrisConstants {
 
 	public Dimension TETRIS_TILE_DIMENSION = new Dimension(20, 20);
 
+	public long DROP_TIME = 1000;
+
 }

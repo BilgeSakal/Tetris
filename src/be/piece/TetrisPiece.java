@@ -24,12 +24,25 @@ public abstract class TetrisPiece implements Cloneable {
 
 	public abstract void generatePiece();
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		TetrisPiece cloned = (TetrisPiece) super.clone();
-		cloned.setPieceLocation((ArrayList<TetrisTileLocation>) pieceLocation.clone());
+		ArrayList<TetrisTileLocation> clonedList = new ArrayList<TetrisTileLocation>();
+		for (TetrisTileLocation tileLoc : pieceLocation) {
+			clonedList.add(new TetrisTileLocation(tileLoc.getRow(), tileLoc.getColumn()));
+		}
+		cloned.setPieceLocation(clonedList);
+		cloned.setPieceColor(new Color(pieceColor.getRGB()));
 		return cloned;
+	}
+
+	@Override
+	public String toString() {
+		String res = "";
+		for (TetrisTileLocation tileLoc : pieceLocation) {
+			res += tileLoc.toString() + System.lineSeparator();
+		}
+		return res;
 	}
 
 	// GETTERS AND SETTERS

@@ -10,6 +10,11 @@ public class TetrisTileLocation {
 		setColumn(column);
 	}
 
+	@Override
+	public String toString() {
+		return "row: " + row + ", col:" + column;
+	}
+
 	// GETTERS AND SETTERS
 
 	public int getRow() {
